@@ -14,7 +14,7 @@ export default function LanguageSwitcher() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="relative text-light">
+    <div className="relative text-light z-10">
       <button
         onClick={() => setOpen(!open)}
         className="flex items-center gap-2  bg-dark text-light text-md hover:opacity-90"
