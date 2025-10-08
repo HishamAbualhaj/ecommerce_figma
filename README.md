@@ -13,7 +13,6 @@ This project focuses on clean UI, reusable components, and scalable folder struc
 - 📱 Fully responsive design (Figma-based)
 - 🛒 Product cards, flash sales, and category sections
 - 🔍 Search bar, cart, and wishlist functionality (UI)
-- 🌙 Dark & light theme ready (optional)
 
 ---
 
@@ -33,10 +32,10 @@ This project focuses on clean UI, reusable components, and scalable folder struc
 
 ```bash
 # 1️⃣ Clone the repository
-git clone https://github.com/your-username/react-ecommerce.git
+git clone https://github.com/HishamAbualhaj/ecommerce_figma
 
 # 2️⃣ Navigate to the project folder
-cd react-ecommerce
+cd ecommerce_figma
 
 # 3️⃣ Install dependencies
 npm install
