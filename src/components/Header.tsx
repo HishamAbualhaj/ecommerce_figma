@@ -71,7 +71,7 @@ const NavMobile = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="lg:hidden absolute top-full shadow-md rounded-lg p-5 left-0 w-full">
+    <div className="lg:hidden absolute top-full shadow-md rounded-lg p-5 left-0 w-full bg-white z-20">
       <div className="flex flex-col gap-3">
         {navs.map((item, i) => (
           <a
