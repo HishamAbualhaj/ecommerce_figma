@@ -67,7 +67,7 @@ const FlashSales = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   return (
-    <div className="py-28">
+    <div className="md:pt-28 pt-16 pb-16">
       <div className="max-container">
         <div className="flex items-center justify-between">
           <div className="flex items-end gap-16">
