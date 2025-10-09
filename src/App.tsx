@@ -1,4 +1,5 @@
 import Footer from "./components/Footer";
+import BestSelling from "./pages/BestSelling";
 import Categories from "./pages/Categories";
 import FlashSales from "./pages/FlashSales";
 import Hero from "./pages/Hero";
@@ -11,6 +12,7 @@ function App() {
       <Hero />
       <FlashSales />
       <Categories />
+      <BestSelling />
       <Footer />
     </>
   );
