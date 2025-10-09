@@ -53,8 +53,8 @@ const CountDownTimer = ({ targetDate }: CountdownTimerProps) => {
     <div className="flex items-center justify-center gap-5">
       {timerItems.map((item, i) => (
         <div key={i} className="flex flex-col items-start gap-2">
-          <div className="">{item.label}</div>
-          <div className="font-bold text-4xl flex gap-4">
+          <div className="max-lg:text-sm">{item.label}</div>
+          <div className="font-bold lg:text-4xl text-2xl flex gap-4">
             <div>{item.value}</div> {i > 2 || <div className="">:</div>}
           </div>
         </div>
