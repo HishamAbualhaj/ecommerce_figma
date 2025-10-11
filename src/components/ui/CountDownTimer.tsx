@@ -1,43 +1,16 @@
 import { useEffect, useState } from "react";
+import calculateTimeLeft from "../../utils/calculateTimeLeft";
 
 interface CountdownTimerProps {
   targetDate: string;
 }
 const CountDownTimer = ({ targetDate }: CountdownTimerProps) => {
-  const calculateTimeLeft = () => {
-    let timeLeft = {
-      days: "00",
-      hours: "00",
-      min: "00",
-      sec: "00",
-    };
-    const difference = Number(new Date(targetDate)) - Number(new Date());
 
-    if (difference > 0) {
-      timeLeft = {
-        days: String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(
-          2,
-          "0"
-        ),
-        hours: String(Math.floor((difference / (1000 * 60)) % 24)).padStart(
-          2,
-          "0"
-        ),
-        min: String(Math.floor((difference / (1000 * 60 * 60)) % 60)).padStart(
-          2,
-          "0"
-        ),
-        sec: String(Math.floor((difference / 1000) % 60)).padStart(2, "0"),
-      };
-    }
-
-    return timeLeft;
-  };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
+  
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+      setTimeLeft(calculateTimeLeft(targetDate));
     }, 1000);
 
     return () => clearInterval(timer);
