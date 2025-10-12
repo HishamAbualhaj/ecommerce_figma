@@ -50,7 +50,7 @@ const Hero = () => {
           <div className="">Categories</div>
         </div>
         <ul
-          className={`xl:flex z-10 ${
+          className={`xl:flex z-10 max-xl:h-[650px] max-xl:border overflow-auto ${
             isTranslate ? "max-xl:translate-x-0" : "max-xl:-translate-x-full"
           } transition bg-white max-xl:absolute max-xl:top-12 flex-col border-r border-gray-200 pr-5 pt-10 max-xl:p-5 gap-2`}
         >
