@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Heading from "../components/ui/Heading";
+import Heading from "../../components/ui/Heading";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {

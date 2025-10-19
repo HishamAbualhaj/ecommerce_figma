@@ -1,13 +1,13 @@
-import Heading from "../components/ui/Heading";
-import product_1 from "../assets/product_1.png";
-import product_2 from "../assets/product_2.png";
-import product_3 from "../assets/product_3.png";
-import ProductCard from "../components/ui/ProductCard";
+import Heading from "../../components/ui/Heading";
+import product_1 from "../../assets/product_1.png";
+import product_2 from "../../assets/product_2.png";
+import product_3 from "../../assets/product_3.png";
+import ProductCard from "../../components/ui/ProductCard";
 import { useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Grid, Navigation } from "swiper/modules";
-import Button from "../components/ui/Button";
+import Button from "../../components/ui/Button";
 
 const OurProduct = () => {
   const products = [

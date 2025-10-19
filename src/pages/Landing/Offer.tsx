@@ -1,7 +1,7 @@
-import Button from "../components/ui/Button";
-import product_4 from "../assets/product_4.png";
+import Button from "../../components/ui/Button";
+import product_4 from "../../assets/product_4.png";
 import { useEffect, useState } from "react";
-import calculateTimeLeft from "../utils/calculateTimeLeft";
+import calculateTimeLeft from "../../utils/calculateTimeLeft";
 const Offer = () => {
   const [timeLeft, setTimeLeft] = useState(
     calculateTimeLeft("2025-10-14T00:00:00")

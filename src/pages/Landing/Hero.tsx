@@ -1,8 +1,8 @@
 import { ArrowRight, ChevronDown, ChevronRight, Menu } from "lucide-react";
 import { useState } from "react";
-import apple from "../assets/apple_image.jpg";
-import apple_logo from "../assets/apple_logo.png";
-import HeroSwiper from "../components/HeroSwiper";
+import apple from "../../assets/apple_image.jpg";
+import apple_logo from "../../assets/apple_logo.png";
+import HeroSwiper from "../../components/HeroSwiper";
 import { SwiperSlide } from "swiper/react";
 const Hero = () => {
   const categories = [

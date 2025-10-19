@@ -1,9 +1,9 @@
-import Heading from "../components/ui/Heading";
-import product_1 from "../assets/product_1.png";
-import product_2 from "../assets/product_2.png";
-import product_3 from "../assets/product_3.png";
-import ProductCard from "../components/ui/ProductCard";
-import Button from "../components/ui/Button";
+import Heading from "../../components/ui/Heading";
+import product_1 from "../../assets/product_1.png";
+import product_2 from "../../assets/product_2.png";
+import product_3 from "../../assets/product_3.png";
+import ProductCard from "../../components/ui/ProductCard";
+import Button from "../../components/ui/Button";
 
 const BestSelling = () => {
   const products = [
