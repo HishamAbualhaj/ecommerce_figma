@@ -24,6 +24,9 @@ body {
   input:focus {
     @apply outline-0;
   }
+  th {
+    text-align: start;
+  }
 }
 @layer components {
   .swiper-pagination-bullets {
