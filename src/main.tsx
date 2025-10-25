@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Landing from "./pages/Landing/Landing.tsx";
 import Login from "./pages/Login/Login.tsx";
 import Cart from "./pages/Cart/Cart.tsx";
+import Checkout from "./pages/Checkout/Checkout.tsx";
+import ProductDetails from "./pages/Products/ProductDetails/ProductDetails.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,6 +16,9 @@ const router = createBrowserRouter([
       { path: "/", element: <Landing /> },
       { path: "login", element: <Login /> },
       { path: "/cart", element: <Cart /> },
+      { path: "/checkout", element: <Checkout /> },
+      { path: "products", element: <></> },
+      { path: "products/:id", element: <ProductDetails /> },
     ],
   },
 ]);
