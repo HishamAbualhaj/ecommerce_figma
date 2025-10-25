@@ -8,24 +8,24 @@ import { X } from "lucide-react";
 import Button from "../../components/ui/Button";
 import { useState } from "react";
 import DeletePopup from "../../components/ui/DeletePopup";
-type Product = {
-  product: React.ReactNode;
-  price: React.ReactNode;
-  quantity: React.ReactNode;
-  total: React.ReactNode;
-};
+import CartTotal from "../../components/CartTotal";
+import type { ProductCart } from "../../types";
+import Coupon from "../../components/Coupon";
+
 const Cart = () => {
   const [popup, setPopup] = useState<boolean>(false);
   const [productId, setProductId] = useState<string>("");
-  const columns: Column<Product>[] = [
+  const columns: Column<ProductCart>[] = [
     { key: "product", lable: "Product" },
     { key: "price", lable: "Price" },
     { key: "quantity", lable: "Quantity" },
     { key: "total", lable: "Subtotal" },
   ];
 
-  const data: Product[] = [
+  const data: ProductCart[] = [
     {
+      productId: "",
+      productName: "",
       product: (
         <div className="flex gap-3 items-center">
           <div className="relative">
@@ -47,6 +47,8 @@ const Cart = () => {
       total: "$650",
     },
     {
+      productId: "",
+      productName: "",
       product: (
         <div className="flex gap-3 items-center">
           <div className="relative">
@@ -66,23 +68,11 @@ const Cart = () => {
       price: "$650",
       quantity: "01",
       total: "$650",
-    },
-  ];
-
-  const cartDetails = [
-    {
-      tilte: "Subtotal:",
-      value: "$1750",
-    },
-    {
-      tilte: "Shipping:",
-      value: "Free",
     },
   ];
 
   return (
     <>
-      <Header />
       <div className="min-h-screen max-container pb-10">
         <div className="py-10">
           <BreadCrumb label="/cart" />
@@ -112,31 +102,12 @@ const Cart = () => {
 
           <div className="mt-10 flex max-lg:flex-col justify-between lg:items-start max-lg:gap-10">
             <div className="flex max-sm:flex-col flex-1 items-stretch gap-2">
-              <input
-                className="w-full max-w-[400px]"
-                type="text"
-                placeholder="Coupon Code"
-              />
-              <Button className="max-sm:w-fit" text="Apply Coupon" />
+              <Coupon />
             </div>
             <div className="border border-gray-300 rounded-md p-5 flex-1 max-w-[500px]">
               <div className="text-xl font-medium text-center">Cart Total</div>
 
-              <div className="flex flex-col gap-6">
-                {cartDetails.map((cartItem, i) => (
-                  <div
-                    key={i}
-                    className="flex justify-between pb-2 border-b border-gray-300"
-                  >
-                    <div className="">{cartItem.tilte}</div>
-                    <div className="">{cartItem.value}</div>
-                  </div>
-                ))}
-                <div className="flex justify-between pb-2">
-                  <div className="">Total:</div>
-                  <div className="">$1750</div>
-                </div>
-              </div>
+              <CartTotal />
 
               <Button
                 className="text-center mt-3 w-fit mx-auto"
@@ -146,7 +117,6 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
