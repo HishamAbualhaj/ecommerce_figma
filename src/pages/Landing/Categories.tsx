@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Heading from "../../components/ui/Heading";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -79,9 +79,6 @@ const Categories = () => {
     return () => clearInterval(timer);
   }, []);
 
-  useEffect(() => {
-    console.log("active state", active);
-  }, [active]);
   return (
     <>
       <div className="max-container pb-16">
@@ -127,7 +124,6 @@ const Categories = () => {
             }}
           >
             {categories.map((category, i) => {
-              console.log("current index", i, category?.title);
               return (
                 <SwiperSlide key={i}>
                   <div

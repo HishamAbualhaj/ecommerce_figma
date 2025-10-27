@@ -1,8 +1,6 @@
 import CountDownTimer from "../../components/ui/CountDownTimer";
 import Heading from "../../components/ui/Heading";
-import product_1 from "../../assets/product_1.png";
-import product_2 from "../../assets/product_2.png";
-import product_3 from "../../assets/product_3.png";
+import { products } from "../../data/data";
 import ProductCard from "../../components/ui/ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -11,59 +9,6 @@ import { useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Button from "../../components/ui/Button";
 const FlashSales = () => {
-  const products = [
-    {
-      title: "HAVIT HV-G92 Gamepad",
-      price: 160,
-      discount: 40,
-      stars: 5,
-      reviews: 88,
-      image: product_1,
-      isFavorite: false,
-      badget: "Discount",
-    },
-    {
-      title: "AK-900 Wired Keyboard",
-      price: 1160,
-      discount: 35,
-      stars: 4,
-      reviews: 75,
-      image: product_2,
-      isFavorite: false,
-      badget: "Discount",
-    },
-    {
-      title: "IPS LCD Gaming Monitor",
-      price: 400,
-      discount: 30,
-      stars: 5,
-      reviews: 99,
-      image: product_3,
-      isFavorite: false,
-      badget: "Discount",
-    },
-    {
-      title: "HAVIT HV-G92 Gamepad",
-      price: 160,
-      discount: 40,
-      stars: 5,
-      reviews: 88,
-      image: product_1,
-      isFavorite: false,
-      badget: "Discount",
-    },
-    {
-      title: "IPS LCD Gaming Monitor",
-      price: 400,
-      discount: 30,
-      stars: 5,
-      reviews: 99,
-      image: product_3,
-      isFavorite: false,
-      badget: "Discount",
-    },
-  ];
-
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   return (
@@ -136,7 +81,6 @@ const FlashSales = () => {
                 </div>
                 <ProductCard.ProductAction />
                 <ProductCard.ProductBadget />
-                
               </ProductCard>
             </SwiperSlide>
           ))}
