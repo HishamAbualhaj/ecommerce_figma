@@ -8,6 +8,7 @@ import Login from "./pages/Login/Login.tsx";
 import Cart from "./pages/Cart/Cart.tsx";
 import Checkout from "./pages/Checkout/Checkout.tsx";
 import ProductDetails from "./pages/Products/ProductDetails/ProductDetails.tsx";
+import CartProvider from "./context/CartProvider.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +26,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
   </StrictMode>
 );

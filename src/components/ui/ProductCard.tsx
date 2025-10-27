@@ -8,29 +8,11 @@ import {
   type PropsWithChildren,
   type SetStateAction,
 } from "react";
-interface ProductCardProps {
-  title: string;
-  price: number;
-  discount: number;
-  stars: number;
-  reviews: number;
-  image: string;
-  isFavorite: boolean;
-  colors?: string[];
-  badget?: "New" | "Hot" | "Discount";
-}
-type productType = {
-  title: string;
-  price: number;
-  discount: number;
-  stars: number;
-  reviews: number;
-  image: string;
-  isFavorite: boolean;
-  colors?: string[];
-  badget?: "New" | "Hot" | "Discount";
-};
-type ProductCardComponent = FC<PropsWithChildren<productType>> & {
+import CartProvider from "../../context/CartProvider";
+import { CartContext } from "../../context/CartProvider";
+import type { ProductType } from "../../types";
+
+type ProductCardComponent = FC<PropsWithChildren<ProductType>> & {
   ProductImage: FC;
   ProductBadget: FC;
   ProductAction: FC;
@@ -42,8 +24,8 @@ type ProductCardComponent = FC<PropsWithChildren<productType>> & {
 };
 
 interface ProductCardContextProps {
-  product: productType | null;
-  setProduct: Dispatch<SetStateAction<productType | null>>;
+  product: ProductType | null;
+  setProduct: Dispatch<SetStateAction<ProductType | null>>;
 }
 
 const ProductCardContext = createContext<ProductCardContextProps | null>(null);
@@ -56,6 +38,7 @@ const useProduct = () => {
   return context;
 };
 const ProductCard: ProductCardComponent = ({
+  id,
   title,
   price,
   discount,
@@ -67,7 +50,8 @@ const ProductCard: ProductCardComponent = ({
   badget,
   children,
 }) => {
-  const [product, setProduct] = useState<productType | null>({
+  const [product, setProduct] = useState<ProductType | null>({
+    id,
     title,
     price,
     discount,
@@ -89,6 +73,12 @@ ProductCard.ProductImage = () => {
   const [addToCart, setAddToCart] = useState<boolean>(false);
   const { product } = useProduct();
   const image = product?.image;
+
+  const cart = useContext(CartContext);
+
+  const handleAddToCart = (product: ProductType) => {
+    cart?.addToCart(product);
+  };
   return (
     <div
       onMouseEnter={() => {
@@ -107,6 +97,22 @@ ProductCard.ProductImage = () => {
         />
       </div>
       <div
+        onClick={() => {
+          handleAddToCart(
+            product || {
+              id: "default-id",
+              title: "Unknown Product",
+              price: 0,
+              discount: 0,
+              stars: 0,
+              reviews: 0,
+              image: "",
+              isFavorite: false,
+              colors: ["#000000", "#FFFFFF"],
+              badget: undefined as "New" | "Hot" | "Discount" | undefined,
+            }
+          );
+        }}
         className={`${
           addToCart ? "max-h-96" : "max-h-0"
         } cursor-pointer overflow-hidden transition-all duration-200`}
@@ -235,7 +241,7 @@ ProductCard.ProductColorSwitch = () => {
       {colors?.map((color, i) => (
         <div
           onClick={() => {
-            setSelectedColor(color)
+            setSelectedColor(color);
           }}
           key={i}
           style={{

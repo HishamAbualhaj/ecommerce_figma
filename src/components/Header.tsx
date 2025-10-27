@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AnnouncementBar from "./AnnouncementBar";
 import { Heart, Menu, Search, ShoppingCart } from "lucide-react";
-
+import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartProvider";
 const navs = [
   { text: "Home", link: "/" },
   { text: "Contact", link: "/contact" },
@@ -12,6 +13,13 @@ const navs = [
 const Header = () => {
   const [active, setActive] = useState(0);
 
+  const [cartItem, setCartItem] = useState(0);
+
+  const context = useContext(CartContext) || { cart: [] };
+
+  useEffect(() => {
+    setCartItem(context.cart.length);
+  }, [context.cart]);
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
     <>
@@ -58,7 +66,13 @@ const Header = () => {
                 </div>
               </div>
               <Heart strokeWidth={1.2} size={30} />
-              <ShoppingCart strokeWidth={1.2} size={30} />
+              <Link className="relative" to="/cart">
+                <ShoppingCart strokeWidth={1.2} size={30} />
+                <div className="z-10 absolute -top-1 -right-3 text-sm text-white h-6 w-6 bg-primary rounded-full flex justify-center items-center">
+                  {cartItem}
+                </div>
+
+              </Link>
             </div>
           </div>
         </div>
