@@ -81,7 +81,7 @@ const Cart = () => {
           </div>
         </div>
       ),
-      total: item.price * 1,
+      total: item.price * (item.quantity ?? 1),
     }));
     setData(arr);
   }, [cart]);
